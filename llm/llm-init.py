@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests  # Ensure you have imported requests
-from ollama_llm import askllm
+# from ollama_llm import askllm
 from lm_studio_llm import get_lm_studio_reponse
 
 app = Flask(__name__)
