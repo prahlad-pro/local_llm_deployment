@@ -30,6 +30,13 @@ def get_lm_studio_reponse(prompt: str, model: str = "model-identifier",):
     # Return the response
     return completion.choices[0].message.content
 
+# Function to reset the history
+def reset_history():
+    global history
+    history = [{"role": "assistant", "content": "Always answer in very brief."}]
+
+# Example usage of reset_history
+# reset_history()
 # Example usage
 # response = get_lm_studio_reponse("Introduce yourself.")
 # print(response)
