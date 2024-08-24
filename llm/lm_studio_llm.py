@@ -5,7 +5,7 @@ history = [
 
 # Initialize the OpenAI client
 api_key: str = "lm-studio"
-# base_url: str = "http://localhost:1234/v1"
+# base_url: str = "http://localhost:1234/v1" # just in case if llm-server needs to be locally hosted and use llm directly
 base_url: str = "https://sure-tightly-asp.ngrok-free.app/v1"
 client = OpenAI(base_url=base_url, api_key=api_key)
 

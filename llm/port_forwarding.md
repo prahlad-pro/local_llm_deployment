@@ -10,7 +10,7 @@ for mac homebrew will be helpfull to istall it.
 # Latest method that is being used
 ___________________________________________________
 direcly portforwarding the llm
-https://sure-tightly-asp.ngrok-free.app -> http://localhost:1234 
+ngrok http --domain=sure-tightly-asp.ngrok-free.app 1234
 
 
 ### here is how it works
