@@ -8,9 +8,10 @@ api_key: str = "lm-studio"
 # base_url: str = "http://localhost:1234/v1" # just in case if llm-server needs to be locally hosted and use llm directly
 base_url: str = "https://sure-tightly-asp.ngrok-free.app/v1"
 client = OpenAI(base_url=base_url, api_key=api_key)
+model = "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF"
 
 # Function to interact with OpenAI
-def get_lm_studio_reponse(prompt: str, model: str = "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF",):
+def get_lm_studio_reponse(prompt: str):
 
     history.append({"role": "user", "content": prompt})
 
@@ -35,7 +36,7 @@ def reset_history():
     global history
     history = [{"role": "assistant", "content": "Always answer in very brief."}]
 
-def check_if_LLM_live(model: str = "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF"):
+def check_if_LLM_live():
     try:
         # Define a minimal prompt to check if the LLM is live
         test_prompt = [
@@ -45,10 +46,6 @@ def check_if_LLM_live(model: str = "lmstudio-community/Meta-Llama-3.1-8B-Instruc
             # Create the completion request
         completion = client.chat.completions.create(
             model=model,
-            # messages=[
-            #     {"role": "system", "content": "Always answer in very brief."},
-            #     {"role": "user", "content": prompt}
-            # ],
             messages=test_prompt,
             temperature=0.7,
         )
