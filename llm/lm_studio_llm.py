@@ -1,6 +1,6 @@
 from openai import OpenAI
 history = [
-            {"role": "system", "content": "Always answer in very brief."}
+            {"role": "assistant", "content": "Always answer in very brief."}
         ]
 
 # Initialize the OpenAI client
@@ -16,15 +16,16 @@ def get_lm_studio_reponse(prompt: str, model: str = "model-identifier",):
     # Create the completion request
     completion = client.chat.completions.create(
         model=model,
-        messages=[
-            {"role": "system", "content": "Always answer in very brief."},
-            {"role": "user", "content": prompt}
-        ],
+        # messages=[
+        #     {"role": "system", "content": "Always answer in very brief."},
+        #     {"role": "user", "content": prompt}
+        # ],
+        messages=history,
         temperature=0.7,
     )
     
     #append into history
-    history.append({"role": "system", "content": completion.choices[0].message.content})
+    history.append({"role": "assistant", "content": completion.choices[0].message.content})
     # Return the response
     return completion.choices[0].message.content
 
