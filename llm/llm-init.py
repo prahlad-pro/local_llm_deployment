@@ -45,7 +45,10 @@ def check_llm_route():
         return jsonify({'status': status}), 200
     except Exception as e:
         return jsonify({'status': str(e)}), 500
-
+        
+@app.route('/pinger_response', methods=['GET'])
+def pinger_response_route():
+    return jsonify({'message': 'session is active'}), 200
 
 if __name__ == '__main__':
     app.run(debug=True, port=5002)
